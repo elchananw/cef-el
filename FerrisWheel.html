@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>pic</title>
+    <!-- zimjs.com - JavaScript Canvas Framework -->
+    <script type=module>
+
+        import zim from "https://zimjs.org/cdn/014/zim";
+       
+        
+        const assets = ["Wheel.png", "box.png","stand.png"];
+        const path = "assets/";
+
+new Frame(FIT, 1024, 768, light, grey, ready, assets, path);
+function ready() {      
+
+    
+    // new Grid();
+
+    let Wheel = new Pic("Wheel.png").sca(0.3).centerReg().addTo();
+    let stand= new Pic("stand.png").sca(0.3).centerReg().addTo().loc(515,580);
+    
+    const container = new Container().sca(0.5).loc(250,200);
+    
+    let box = new Pic("box.png").addTo(container).loc(400,-145);
+    let box1 = new Pic("box.png").addTo(container).loc(25,40);
+    let box2 = new Pic("box.png").addTo(container).loc(-95,400);
+    let box3 = new Pic("box.png").addTo(container).loc(80,750);
+    let box4 = new Pic("box.png").addTo(container).loc(400,870);
+    let box5 = new Pic("box.png").addTo(container).loc(700,780);
+    let box6 = new Pic("box.png").addTo(container).loc(915,400);
+    let box7 = new Pic("box.png").addTo(container).loc(755,-0);
+    
+    
+    Wheel // start at 45 degrees
+    .animate({
+        props:{rotation:"360"},
+        time:100,
+        loop:true,
+        ease:"linear"
+    });
+
+
+    const path = [
+        [0,0,0,0,0,0,0,0,"mirror"],
+        [45,300,0,0,-150,0,0,0,"mirror"],
+        [500,-153.9,0,0,252.7,-63.8,-252.7,63.8,"mirror"],
+        [-150,0,0,0,-0,0,0,0,"mirror"],
+        [0,0,0,0,0,0,0,0,"mirror"]
+    ]; 
+
+    
+    const squiggle = new Squiggle({
+        points:path,
+        onTop:false,
+        stickColor:light,
+				showControls:false
+    }).center();
+    squiggle.visible = false;
+
+  
+		
+
+		// box
+		// 			.centerReg()
+		// 			.animate({
+		// 					props:{path:squiggle, orient:false},
+		// 					time:50,
+		// 					rewind:true,
+		// 					loop:true,
+		// 					ease:"sineInOut"
+		// 			})
+					// .wiggle("rotation", 0, 10, 20, 500, 1000);
+		
+
+
+
+
+    // save the path
+    const transformManager = new TransformManager(squiggle, "CodePenButton");
+   
+
+
+
+    stage.update(); // this is needed to show any changes
+
+    createIcon(frame, 800, 620); 
+
+
+
+    // container
+    // .animate({
+    //     				props:{path:squiggle, orient:false},
+	// 						time:50,
+	// 						rewind:true,
+	// 						loop:true,
+	// 						ease:"sineInOut"
+	// 				})
+	// 				.wiggle("rotation", 0, 10, 20, 500, 1000);
+ 
+
+} // end ready
+
+</script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body></body>
+
+</html>

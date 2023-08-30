@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>pic</title>
+    <!-- zimjs.com - JavaScript Canvas Framework -->
+    <script type=module>
+
+        import zim from "https://zimjs.org/cdn/014/zim";
+       
+        
+        const assets = ["station.png", "train.png","Untitled-1.png"];
+        const path = "assets/";
+
+new Frame(FIT, 1024, 768, light, grey, ready, assets, path);
+function ready() {      
+
+    
+    
+    let station = new Pic("station.png").sca(0.45).addTo();
+    station.x = -200
+    
+    // const container = new Container().loc(100,100).outLine();
+
+
+
+        var arrays = Array.from({ length: 10 }, () => Array.from({ length: 11 }, (_, i) => i).sort(() => Math.random() - 0.5));
+
+let random = Math.floor(Math.random() * 10);
+
+  
+  let numberToPrint = arrays[0][0];
+  let numberToPrint1 = arrays[0][1];
+  let numberToPrint2 = arrays[0][2];
+  let numberToPrint3 = arrays[0][3];
+  let numberToPrint4 = arrays[0][4];
+  let numberToPrint5 = arrays[0][5];
+  let numberToPrint6 = arrays[0][6];
+  let numberToPrint7 = arrays[0][7];
+  let numberToPrint8 = arrays[0][8];
+  let numberToPrint9 = arrays[0][9];
+  let numberToPrint10 = arrays[0][10];
+   
+   
+  
+  const container = new Container().loc();
+
+  let train = new Pic("Untitled-1.png").sca().addTo(container);
+    // station2.x = 200
+   
+//    let train = new Pic("train.png").sca().addTo()
+   container.x = 1000;
+   container.y = 500;
+   container.animate({
+    props:{x:80},
+    time:5,
+        });
+  
+    const input01 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint1}`).addTo(container) .loc(120,30); 
+    const input02 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint2}`).addTo(container) .loc(195,30); 
+    const input03 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint3}`).addTo(container) .loc(270,30); 
+    const input04 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint4}`).addTo(container) .loc(345,30); 
+    const input05 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint5}`).addTo(container) .loc(420,30); 
+    const input06 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint6}`).addTo(container) .loc(495,30); 
+    const input07 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint7}`).addTo(container) .loc(570,30); 
+    const input08 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint8}`).addTo(container) .loc(645,30); 
+    const input09 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint9}`).addTo(container) .loc(720,30); 
+    const input010 = new TextInput(70, 50,`${numberToPrint}*${numberToPrint10}`).addTo(container).loc(795,30); 
+
+    
+    input01.on("input", function() {
+               
+        container.x = 80;
+        container.y = 500;
+        container.animate({
+        props:{x:-1000},
+        time:5,
+        });
+        
+       
+});
+  
+
+
+} // end ready
+
+</script>
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+</head>
+
+<body></body>
+
+</html>
