@@ -6,7 +6,7 @@
     <title>pic</title>
     <!-- zimjs.com - JavaScript Canvas Framework -->
     <script type=module>
-
+        
         import zim from "https://zimjs.org/cdn/014/zim";
        
         
@@ -18,7 +18,7 @@ function ready() {
 
     
     // new Grid();
-
+    
     let Wheel = new Pic("Wheel.png").sca(0.3).centerReg().addTo();
     let stand= new Pic("stand.png").sca(0.3).centerReg().addTo().loc(515,580);
     
@@ -60,27 +60,59 @@ function ready() {
     }).center();
     squiggle.visible = false;
 
-  
+    new Poly([2,3,4,5], [5,6,7], {min:.5, max:.9}, white)
+			.loc(100,100);
+	};
+	stars.cache();
 		
 
-		// box
-		// 			.centerReg()
-		// 			.animate({
-		// 					props:{path:squiggle, orient:false},
-		// 					time:50,
-		// 					rewind:true,
-		// 					loop:true,
-		// 					ease:"sineInOut"
-		// 			})
-					// .wiggle("rotation", 0, 10, 20, 500, 1000);
+		box
+					.centerReg()
+					.animate({
+							props:{path:squiggle, orient:false},
+							time:50,
+							rewind:true,
+							loop:true,
+							ease:"sineInOut"
+					})
+					.wiggle("rotation", 0, 10, 20, 500, 1000);
 		
+
+
+    //                 const squiggle2 = new Squiggle({
+    //     points:path,
+    //     onTop:false,
+    //     stickColor:light,
+	// 			showControls:false
+    // }).center();
+    // squiggle2.visible = true;
+    //                 const path2 = [
+    //     [0,0,0,0,0,0,0,0,"mirror"],
+    //     [0,300,0,0,-150,0,0,0,"mirror"],
+    //     [0,-153.9,0,0,252.7,-63.8,-252.7,63.8,"mirror"],
+    //     [-0,0,0,0,-0,0,0,0,"mirror"],
+    //     [0,0,0,0,0,0,0,0,"mirror"]
+    // ]; 
+    //                 box1
+    //                 .loc(100,100)
+	// 				.centerReg()
+	// 				.animate({
+	// 						props:{path:squiggle2, orient:false},
+	// 						time:5,
+	// 						rewind:true,
+	// 						loop:true,
+	// 						ease:"sineInOut"
+	// 				})
+	// 				// .wiggle("rotation", 0, 10, 20, 500, 1000);
+
+	
 
 
 
 
     // save the path
     const transformManager = new TransformManager(squiggle, "CodePenButton");
-   
+    // const transformManager2 = new TransformManager(squiggle2, "CodePenButton");
 
 
 
@@ -101,7 +133,7 @@ function ready() {
 	// 				.wiggle("rotation", 0, 10, 20, 500, 1000);
  
 
-} // end ready
+// } // end ready
 
 </script>
     <meta name="viewport" content="width=device-width, user-scalable=no" />

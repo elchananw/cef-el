@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8" />
-    <title>pic</title>
-    <!-- zimjs.com - JavaScript Canvas Framework -->
-    <script type=module>
-
-        import zim from "https://zimjs.org/cdn/014/zim";
-       
-        
-        const assets = ["station.png", "train.png","Untitled-1.png"];
-        const path = "assets/";
-
-new Frame(FIT, 1024, 768, light, grey, ready, assets, path);
-function ready() {      
-
     
+    <head>
+        <meta charset="utf-8" />
+        <title>pic</title>
+        <!-- zimjs.com - JavaScript Canvas Framework -->
+        <script type=module>
+            
+            import zim from "https://zimjs.org/cdn/014/zim";
+            
+            
+            const assets = ["station.png", "train.png","Untitled-1.png"];
+            const path = "assets/";
+            
+            new Frame(FIT, 1024, 768, light, grey, ready, assets, path);
+            function ready() {      
+                
+                
+               
     
     let station = new Pic("station.png").sca(0.45).addTo();
     station.x = -200
     
     // const container = new Container().loc(100,100).outLine();
-
-
-
-        var arrays = Array.from({ length: 10 }, () => Array.from({ length: 11 }, (_, i) => i).sort(() => Math.random() - 0.5));
+    
+    
+    
+    var arrays = Array.from({ length: 10 }, () => Array.from({ length: 11 }, (_, i) => i).sort(() => Math.random() - 0.5));
 
 let random = Math.floor(Math.random() * 10);
 
@@ -66,22 +67,58 @@ let random = Math.floor(Math.random() * 10);
     const input07 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint7}`).addTo(container) .loc(570,30); 
     const input08 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint8}`).addTo(container) .loc(645,30); 
     const input09 = new TextInput(70, 50, `${numberToPrint}*${numberToPrint9}`).addTo(container) .loc(720,30); 
-    const input010 = new TextInput(70, 50,`${numberToPrint}*${numberToPrint10}`).addTo(container).loc(795,30); 
+    const input10 = new TextInput(70, 50,`${numberToPrint}*${numberToPrint10}`).addTo(container).loc(795,30); 
 
     
-    input01.on("input", function() {
+//     input01.on("input", function() {
                
-        container.x = 80;
-        container.y = 500;
-        container.animate({
-        props:{x:-1000},
-        time:5,
-        });
+//         container.x = 80;
+//         container.y = 500;
+//         container.animate({
+//         props:{x:-1000},
+//         time:5,
+//         });
         
        
-});
-  
+// });
+let inputAnswers = false;
 
+
+input01.on("input", function() {
+    let userAnswer = parseInt(this.text); // Assuming the input is always a valid integer
+    let correctAnswer = numberToPrint * numberToPrint1;
+    if (userAnswer === correctAnswer) {
+        // If the answer is correct, you might want to move the container or perform some success action
+        container.animate({
+            props: {x: -1000},
+            time: 5,
+        });
+    } else {
+        // If the answer is incorrect, you might want to indicate the error to the user
+        // For example, changing the background color of the input field to red
+        this.color = "red"; // This is just an example, adjust based on how you can change the TextInput's appearance in zimjs
+    }
+});
+
+
+
+
+//נסיון שלי
+// input01.on("input", function() {
+    // let userAnswer = parseInt(this.text); // Assuming the input is always a valid integer
+    // let correctAnswer = numberToPrint * numberToPrint1;
+    // if (userAnswer === correctAnswer) {
+        // If the answer is correct, you might want to move the container or perform some success action
+    //     container.animate({
+    //         props: {x: -1000},
+    //         time: 5,
+    //     });
+    // } else {
+        // If the answer is incorrect, you might want to indicate the error to the user
+        // For example, changing the background color of the input field to red
+        // this.color = "red"; // This is just an example, adjust based on how you can change the TextInput's appearance in zimjs
+//     }
+// });
 
 } // end ready
 
